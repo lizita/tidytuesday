@@ -10,19 +10,17 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, cache = TRUE, warning=FALSE, message = FALSE)
+library(tidyverse)
+library(skimr)
 ```
 
 ## Tidy Tuesday Week 25 - African-American History
 
-This is my first week exploring tidy tuesday data. Information about the project and datasets is at https://github.com/rfordatascience/tidytuesday.
+This is my first week exploring tidy tuesday data. Information about the project and datasets is at https://github.com/rfordatascience/tidytuesday. Before working with this data I watched Julia Silge's excellent [screencast] (https://juliasilge.com/blog/captive-africans-voyages/) and picked up some great ways to find missing values and recode data. 
 
-```{r}
+```{r, include=FALSE}
 # Read in with tidytuesdayR package (https://github.com/thebioengineer/tidytuesdayR)
-
-# Either ISO-8601 date or year/week works
-
-# Install via devtools::install_github("thebioengineer/tidytuesdayR")
 
 tuesdata <- tidytuesdayR::tt_load('2020-06-16')
 tuesdata <- tidytuesdayR::tt_load(2020, week = 25)
@@ -33,12 +31,18 @@ slave_routes <- tuesdata$slave_routes
 census <- tuesdata$census
 ```
 
-## Including Plots
+## A Little History
 
-You can also embed plots, for example:
+I learned a lot just by looking at the data provided. I was not previously aware of the history captured in the african_names dataset - which lists the names of enslaved people that were freed as they were being illegally smuggled to the Americas. The most names were recorded at the port of Freetown in Sierra Leone before making the trans-atlantic journey. Here's the description of the dataset excepted on the tidytuesday github page:
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+*During the last 60 years of the trans-Atlantic slave trade, courts around the Atlantic basins condemned over two thousand vessels for engaging in the traffic and recorded the details of captives found on board including their African names. The African Names Database was created from these records, now located in the Registers of Liberated Africans at the Sierra Leone National Archives, Freetown, as well as Series FO84, FO313, CO247 and CO267 held at the British National Archives in London. Links are provided to the ships in the Voyages Database from which the liberated Africans were rescued, as well as to the African Origins site where users can hear the names pronounced and help us identify the languages in which they think the names are used.*
+
+```{r, echo=FALSE}
+skim(african_names)
+
+african_names %>%
+  group_by(port_disembark) %>%
+  count() %>% 
+  arrange(desc(n))
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

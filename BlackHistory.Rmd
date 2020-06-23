@@ -1,0 +1,44 @@
+---
+title: "Black_History"
+author: "Liz McConnell"
+date: "6/23/2020"
+output:
+  html_document: 
+    keep_md: yes
+    theme: cosmo
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Tidy Tuesday Week 25 - African-American History
+
+This is my first week exploring tidy tuesday data. Information about the project and datasets is at https://github.com/rfordatascience/tidytuesday.
+
+```{r}
+# Read in with tidytuesdayR package (https://github.com/thebioengineer/tidytuesdayR)
+
+# Either ISO-8601 date or year/week works
+
+# Install via devtools::install_github("thebioengineer/tidytuesdayR")
+
+tuesdata <- tidytuesdayR::tt_load('2020-06-16')
+tuesdata <- tidytuesdayR::tt_load(2020, week = 25)
+
+blackpast <- tuesdata$blackpast
+african_names <- tuesdata$african_names
+slave_routes <- tuesdata$slave_routes
+census <- tuesdata$census
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

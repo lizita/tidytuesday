@@ -13,7 +13,7 @@ output:
 
 ## Tidy Tuesday Week 25 - African-American History
 
-This is my first week exploring tidy tuesday data. Information about the project and datasets is at https://github.com/rfordatascience/tidytuesday. Before working with this data I watched Julia Silge's excellent [screencast] (https://juliasilge.com/blog/captive-africans-voyages/) and picked up some great ways to find missing values and recode data. 
+This is my first week exploring tidy tuesday data. Information about the project and datasets is at [the tidytuesday github](https://github.com/rfordatascience/tidytuesday). Before working with this data I watched Julia Silge's excellent [screencast](https://juliasilge.com/blog/captive-africans-voyages/) and picked up some great ways to find missing values and recode data. 
 
 
 
@@ -21,7 +21,11 @@ This is my first week exploring tidy tuesday data. Information about the project
 
 I learned a lot just by looking at the data provided. I was not previously aware of the history captured in the african_names dataset - which lists the names of enslaved people that were freed as they were being illegally smuggled to the Americas. The most names were recorded at the port of Freetown in Sierra Leone before making the trans-atlantic journey. Here's the description of the dataset excepted on the tidytuesday github page:
 
+___
+
 *During the last 60 years of the trans-Atlantic slave trade, courts around the Atlantic basins condemned over two thousand vessels for engaging in the traffic and recorded the details of captives found on board including their African names. The African Names Database was created from these records, now located in the Registers of Liberated Africans at the Sierra Leone National Archives, Freetown, as well as Series FO84, FO313, CO247 and CO267 held at the British National Archives in London. Links are provided to the ships in the Voyages Database from which the liberated Africans were rescued, as well as to the African Origins site where users can hear the names pronounced and help us identify the languages in which they think the names are used.*
+
+___
 
 
 Table: Data summary
@@ -74,4 +78,3 @@ year_arrival             0            1.00    1831.40       9.52   1808.0    182
 ## 5 St. Helena             96
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

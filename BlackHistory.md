@@ -78,3 +78,20 @@ year_arrival             0            1.00    1831.40       9.52   1808.0    182
 ## 5 St. Helena             96
 ```
 
+From this output we can see that `country_origin` has the most missing data by far. There's a clue about this in the description of the data above, which mentions the *African Origins site, where users can hear the names pronounced and help identify the languages in which they think the names are used*.
+
+So the people who were liberated were from such different cultures that the original documentarians could not speak the same language or determine where they originally came from. We can see that about 81,000 people were freed in Freetown (This now makes sense - again learning lots here). About 10,000 people were freed in Havana, Cuba, and many less in other locations in the caribbean. 
+
+The `age` variable includes entries from a 6-month old child to a 77 year old person. The `gender` variable has 12,878 missing values and 4 options. I'll use some of the same techniques as Julia Silge to clean up this data. 
+
+
+```r
+african_names %>%
+  group_by(port_disembark, year_arrival) %>%
+  count() %>% 
+  arrange(desc(year_arrival)) %>%
+  ggplot(aes(x = year_arrival, y = n, color = port_disembark)) + geom_line(alpha = 0.6, size = 2) + geom_point(alpha = 0.6)
+```
+
+![](BlackHistory_files/figure-html/unnamed-chunk-3-1.png)<!-- -->
+
